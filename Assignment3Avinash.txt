@@ -1,0 +1,58 @@
+Q1
+
+class Employee:
+    No_of_employees = 0 
+
+    def __init__(self, name, family, salary, department):#constructor to initialize name, family, salary, department.
+        self.name = name
+        self.family = family
+        self.salary = salary
+        self.department = department
+        Employee.No_of_employees += 1
+
+    def average_salary(self): #a function to average salary.
+        return sum([emp.salary for emp in Employee.Emps])/len(Employee.Emps)
+
+    Emps = []#creating an empty list.
+
+class FulltimeEmployee(Employee):#Creating a class and inheriting the properties from Employee class.
+    pass
+
+E1 = Employee("Avi", "Vem", 55000, "Data Science")
+E2 = Employee("Kar", "Manne", 25000, "AI")
+E3 = FulltimeEmployee("jai", "Jai", 30000, "Java")
+E4 = FulltimeEmployee("Sus", "Ritha", 35000, "Aeronautics")
+
+#Appending to 'emps' list.
+Employee.Emps.append(E1)
+Employee.Emps.append(E2)
+Employee.Emps.append(E3)
+Employee.Emps.append(E4)
+
+print("Avg salary of the employees is: ", E1.average_salary())
+print("Count of employees: ",FulltimeEmployee.No_of_employees)
+
+Output
+Avg salary of the employees is:  36250.0
+Count of employees:  4
+
+Q2
+
+import numpy as np
+
+# Create a random vector of size 20 with float values between 1 and 20
+vec = np.random.uniform(1, 15, 20)
+
+# Reshape the vector to a 4x5 array
+arr = np.reshape(vec, (4, 5))
+
+# Replace the maximum value in each row with 0
+arr[np.arange(arr.shape[0]), arr.argmax(axis=1)] = 0
+
+print(arr)
+
+Output
+[[13.44016089 13.69551078  7.22568918  0.         10.97734994]
+ [ 7.57396217 11.88424819  3.11759624  2.5154648   0.        ]
+ [ 6.20644514  4.6115544  13.06059211  0.         14.32741907]
+ [10.99653211  6.43646408  0.          7.6298981   7.60871391]]
